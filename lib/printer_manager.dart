@@ -85,7 +85,7 @@ class PrinterManager {
 
   Future<bool> connect(Printer device) async {
   if (device.connectionType == ConnectionType.USB) {
-    return Platform.isWindows ? true : FlutterThermalPrinterPlatform.instance.connect(device);
+    return Platform.isWindows ? true : await FlutterThermalPrinterPlatform.instance.connect(device);
   }
 
   if (device.connectionType == ConnectionType.BLE) {
